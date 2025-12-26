@@ -1,31 +1,44 @@
 ---
 layout: default
-title: Paper 002
+title: Another Research Title
+issue_id: 2025-fall
+paper_id: 002
+authors:
+  - Another Student
+year: 2025
+publication_date: 2025-12-01
+keywords:
+  - Economics
+  - Research
+  - UNLV
+pdf: /assets/papers/2025-fall/paper-002.pdf
+abstract: |
+  This is a placeholder for the paper abstract. The abstract should provide a brief overview of the research question, methodology, and key findings.
 parent: Fall 2025
 grand_parent: Issues
 nav_order: 2
 ---
 
-# Paper 002: Another Research Title
+# {{ page.title }}
 
-**Author:** Another Student  
-**Date:** Fall 2025  
-**Course:** ECON 490
+**Authors:** {{ page.authors | join: ", " }}  
+**Publication date:** {{ page.publication_date | default: page.year }}  
+**Issue:** Fall 2025
 
 ## Abstract
 
-This is a placeholder for the paper abstract. The abstract should provide a brief overview of the research question, methodology, and key findings.
+{{ page.abstract }}
 
 ## Download
 
-[Download PDF]({{ site.baseurl }}/assets/papers/2025-fall/paper-002.pdf){: .btn .btn-primary }
+[Download PDF]({{ page.pdf | relative_url }}){: .btn .btn-primary }
 
 ## Citation
 
 ```
-Another Student. (2025). Another Research Title. UNLV ECON 490 Journal, Fall 2025.
+Another Student (2025). {{ page.title }}. UNLV ECON 490 Journal, Fall 2025. Retrieved from {{ page.pdf | relative_url }}
 ```
 
 ## Keywords
 
-Economics, Research, UNLV, ECON 490
+{{ page.keywords | join: ", " }}

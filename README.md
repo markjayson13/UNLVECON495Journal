@@ -1,113 +1,91 @@
-# UNLV ECON 490 Journal
+# UNLV ECON 490 Journal / Proceedings
 
-A GitHub Pages site for hosting UNLV ECON 490 academic papers using Jekyll with the Just-the-Docs theme.
+Public GitHub Pages site built with **Jekyll + Just-the-Docs**. Papers are organized by issue (semester + year), surfaced with search, and include citation-friendly metadata.
 
-## Features
+## Configuration
 
-- 📚 Organized paper collections by semester
-- 🔍 Full-text search functionality
-- 📱 Responsive design
-- 🎨 Clean, academic layout using Just-the-Docs theme
+Key settings in `_config.yml`:
 
-## Site Structure
-
-```
-├── _config.yml                          # Jekyll configuration
-├── index.md                             # Home page
-├── issues.md                            # Issues listing page
-├── issues/
-│   └── 2025-fall/
-│       ├── index.md                     # Fall 2025 issue page
-│       ├── paper-001.md                 # Paper 001 details
-│       └── paper-002.md                 # Paper 002 details
-└── assets/
-    └── papers/
-        └── 2025-fall/
-            ├── paper-001.pdf            # PDF file for paper 001
-            └── paper-002.pdf            # PDF file for paper 002
-```
-
-## Deployment Steps
-
-### 1. Configure GitHub Pages
-
-1. Go to your repository on GitHub
-2. Navigate to **Settings** → **Pages**
-3. Under **Source**, select the branch you want to deploy (e.g., `main` or `copilot/setup-jekyll-site-just-the-docs`)
-4. Click **Save**
-
-### 2. Update Configuration
-
-Edit `_config.yml` and replace the placeholder values:
-
-```yaml
-url: https://USERNAME.github.io
-baseurl: /REPOSITORY-NAME
-```
-
-Replace:
-- `USERNAME` with your GitHub username (e.g., `markjayson13`)
-- `REPOSITORY-NAME` with your repository name (e.g., `UNLVECON490Journal`)
-
-Example:
 ```yaml
 url: https://markjayson13.github.io
 baseurl: /UNLVECON490Journal
+permalink: pretty
+remote_theme: just-the-docs/just-the-docs
+plugins:
+  - jekyll-sitemap
 ```
 
-Also update the GitHub link in the aux_links section:
-```yaml
-aux_links:
-  "View on GitHub":
-    - "https://github.com/USERNAME/REPOSITORY-NAME"
-```
+Set **Settings → Pages → Source** to **GitHub Actions** to use the included workflow `.github/workflows/pages.yml`.
 
-### 3. Wait for Deployment
-
-After pushing changes:
-1. Go to **Actions** tab in your repository
-2. Wait for the "pages build and deployment" workflow to complete
-3. Your site will be available at: `https://USERNAME.github.io/REPOSITORY-NAME/`
-
-### 4. Add Papers
-
-To add new papers:
-
-1. Upload PDF files to `assets/papers/SEMESTER/`
-2. Create a new markdown file in `issues/SEMESTER/` (e.g., `paper-003.md`)
-3. Use the existing paper templates as a reference
-4. Update the front matter with appropriate title, parent, and nav_order
-
-## Local Development
-
-To test the site locally:
+## Local development (macOS)
 
 ```bash
-# Install Jekyll and dependencies
-gem install jekyll bundler
+brew install ruby
+gem install bundler
+bundle install          # uses Gemfile with github-pages for compatibility
 
-# Create Gemfile
-cat > Gemfile << EOF
-source 'https://rubygems.org'
-gem "github-pages", group: :jekyll_plugins
-gem "just-the-docs"
-EOF
+# Serve with live reload
+make serve              # or: bundle exec jekyll serve --livereload
 
-# Install dependencies
-bundle install
-
-# Serve the site locally
-bundle exec jekyll serve
-
-# Visit http://localhost:4000/REPOSITORY-NAME/
+# Build the site
+make build
 ```
 
-## Theme Documentation
+Site output is written to `_site/`.
 
-This site uses the Just-the-Docs theme. For more information on customization options:
-- [Just-the-Docs Documentation](https://just-the-docs.github.io/just-the-docs/)
-- [Jekyll Documentation](https://jekyllrb.com/docs/)
+## Adding an issue and paper
 
-## License
+Issues and papers live in parallel markdown files and PDFs:
 
-MIT License
+```
+issues/<issue-id>/index.md          # issue landing page
+issues/<issue-id>/paper-001.md      # paper page
+assets/papers/<issue-id>/paper-001.pdf
+```
+
+Front matter expected on paper pages:
+
+```yaml
+layout: default
+title: Paper Title
+issue_id: 2025-fall
+paper_id: 001
+authors: ["Author One", "Author Two"]
+year: 2025
+publication_date: 2025-12-01
+keywords: ["economics", "policy"]
+pdf: /assets/papers/2025-fall/paper-001.pdf
+abstract: |
+  Concise abstract here.
+```
+
+### Automation helpers
+
+Create a new issue (also scaffolds paper-001 and the PDF folder):
+
+```bash
+python tools/new_issue.py 2026-spring --title "Spring 2026"
+```
+
+Add an additional paper to an existing issue:
+
+```bash
+python tools/new_paper.py 2026-spring 002 --title "New Paper" --authors "Author One,Author Two" --keywords "economics,markets"
+```
+
+Then place the corresponding PDF at `assets/papers/<issue-id>/paper-<paper_id>.pdf`.
+
+## Deployment
+
+The workflow `.github/workflows/pages.yml` builds with `actions/jekyll-build-pages` and deploys via `actions/deploy-pages`. Once enabled, commits to `main` will publish automatically to:
+
+```
+https://markjayson13.github.io/UNLVECON490Journal/
+```
+
+## Content and policies
+
+- **Search & navigation:** Just-the-Docs sidebar + search are enabled site-wide.  
+- **Metadata:** Paper pages emit Google Scholar–style `citation_*` meta tags via `_includes/head_custom.html`.  
+- **Policies:** See `/policies/` for copyright, takedown, privacy, integrity, and AI-use guidance.  
+- **Disclaimer:** Undergraduate proceedings; not peer-reviewed unless stated.
