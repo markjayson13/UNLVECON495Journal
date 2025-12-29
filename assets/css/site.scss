@@ -13,8 +13,8 @@
   --hero-overlay-strong: rgba(177, 2, 2, 0.32);
   --border: #e8e8e8;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-  --container: 1200px;
-  --container-wide: 1320px;
+  --container: 1400px;
+  --container-wide: 1400px;
 }
 
 *,
@@ -28,7 +28,8 @@ body {
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--black);
   background: var(--white);
-  line-height: 1.7;
+  font-size: 17px;
+  line-height: 1.65;
 }
 
 h1,
@@ -40,6 +41,20 @@ h6,
 .page-title {
   font-family: "Playfair Display", "Times New Roman", serif;
   margin: 0 0 0.6rem;
+  line-height: 1.2;
+}
+
+h1,
+.page-title {
+  font-size: clamp(2rem, calc(3vw + 1rem), 3.25rem);
+}
+
+h2 {
+  font-size: clamp(1.75rem, calc(1.4vw + 1.1rem), 2.1rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, calc(0.8vw + 1rem), 1.5rem);
 }
 
 a {
@@ -54,13 +69,13 @@ a:hover {
 .container {
   width: min(100%, var(--container));
   margin: 0 auto;
-  padding: 0 1.25rem;
+  padding: 0 1.75rem;
 }
 
 .container-wide {
   width: min(100%, var(--container-wide));
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.75rem;
 }
 
 .site-header {
@@ -241,6 +256,42 @@ a:hover {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.1rem;
+}
+
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.cat-box {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.1rem 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+}
+
+.cat-box::after {
+  content: "→";
+  font-size: 0.95rem;
+  color: var(--red);
+}
+
+.cat-box:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: var(--red);
+}
+
+.cat-box .hint {
+  color: var(--grey);
+  font-size: 0.95rem;
 }
 
 .content-stack {
@@ -678,6 +729,10 @@ a:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .cat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .year-row {
     grid-template-columns: 1fr;
   }
@@ -685,6 +740,10 @@ a:hover {
 
 @media (max-width: 640px) {
   .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .cat-grid {
     grid-template-columns: 1fr;
   }
 }
