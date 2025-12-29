@@ -232,10 +232,6 @@ a:hover {
   color: #ffffff;
 }
 
-.hero-banner .hero-content {
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
-}
-
 .hero-banner .eyebrow {
   color: rgba(255, 255, 255, 0.85);
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
@@ -829,8 +825,6 @@ a:hover {
 
   .hero-content {
     position: relative;
-    top: initial;
-    left: initial;
     padding: 3.5rem 1.75rem;
     max-width: none;
   }
