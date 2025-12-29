@@ -1,25 +1,13 @@
 #!/usr/bin/env python3
 import argparse
+import sys
 from pathlib import Path
 from typing import List
 
+from categories_constants import ALLOWED_CATEGORIES
+
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "templates" / "paper-template.md"
-ALLOWED_CATEGORIES = [
-    "Applied Microeconomics",
-    "Macroeconomics",
-    "Economic Growth",
-    "Public and Policy",
-    "Labor and Demography",
-    "Health",
-    "Education",
-    "International",
-    "Finance",
-    "IO and Strategy",
-    "Environmental and Resource",
-    "Economic History and Institutions",
-    "Methods and Econometrics",
-]
 
 
 def read_front_matter_title(issue_slug: str) -> str:
@@ -122,11 +110,11 @@ def main():
         print("Allowed categories:")
         for item in ALLOWED_CATEGORIES:
             print(f" - {item}")
-        return
+        sys.exit(1)
 
     authors_block = to_yaml_block(authors, "Author Name")
     keywords_block = to_yaml_block(keywords, "keyword")
-    categories_block = to_yaml_block(categories, "Education")
+    categories_block = to_yaml_block(categories, "Category")
 
     try:
         paper_number_int = int(paper_number)

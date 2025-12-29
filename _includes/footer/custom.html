@@ -1,3 +1,4 @@
+{% assign contact_email = site.contact_email | default: site.author.email | default: 'farolmarkjayson@yahoo.com' %}
 <div class="footer-contact">
-  Contact: <a href="mailto:{{ site.contact_email | default: site.author.email | default: 'farolmarkjayson@yahoo.com' }}">{{ site.contact_email | default: site.author.email | default: 'farolmarkjayson@yahoo.com' }}</a>
+  Contact: <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>
 </div>

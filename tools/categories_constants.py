@@ -1,0 +1,15 @@
+ALLOWED_CATEGORIES = [
+    "Applied Microeconomics",
+    "Macroeconomics",
+    "Economic Growth",
+    "Public and Policy",
+    "Labor and Demography",
+    "Health",
+    "Education",
+    "International",
+    "Finance",
+    "IO and Strategy",
+    "Environmental and Resource",
+    "Economic History and Institutions",
+    "Methods and Econometrics",
+]

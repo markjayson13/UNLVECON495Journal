@@ -46,4 +46,4 @@ These working papers are not peer reviewed unless specifically noted. Authors ar
 
 ## Contact
 
-Questions, corrections, or collaboration inquiries are welcome at <a href="mailto:farolmarkjayson@yahoo.com">farolmarkjayson@yahoo.com</a>.
+Questions, corrections, or collaboration inquiries are welcome at <a href="mailto:{{ site.contact_email | default: site.author.email | default: 'farolmarkjayson@yahoo.com' }}">{{ site.contact_email | default: site.author.email | default: 'farolmarkjayson@yahoo.com' }}</a>.
