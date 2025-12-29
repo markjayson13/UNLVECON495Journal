@@ -38,3 +38,5 @@ nav_order: 1
 [Download PDF]({{ page.pdf | relative_url }}){: .btn .btn--primary }
 
 ## Citation
+
+Citation details forthcoming.
