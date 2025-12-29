@@ -174,7 +174,7 @@ h4 {
     background: linear-gradient(
       135deg,
       rgba(0, 0, 0, 0.65),
-      rgba(red($unlv-red), green($unlv-red), blue($unlv-red), 0.7)
+      rgba($unlv-red, 0.7)
     );
     mix-blend-mode: multiply;
   }
@@ -305,7 +305,7 @@ h4 {
 
   &:hover,
   &:focus {
-    background: rgba(red($unlv-red), green($unlv-red), blue($unlv-red), 0.1);
+    background: rgba($unlv-red, 0.1);
   }
 }
 
