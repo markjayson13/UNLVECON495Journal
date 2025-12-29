@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 import argparse
+import sys
 from pathlib import Path
 from typing import List
+
+from categories_constants import ALLOWED_CATEGORIES
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "templates" / "paper-template.md"
@@ -37,6 +40,7 @@ def render_template(
     paper_title: str,
     authors_block: str,
     keywords_block: str,
+    categories_block: str,
     abstract_text: str,
     publication_date: str,
 ) -> str:
@@ -49,6 +53,7 @@ def render_template(
         .replace("{{PAPER_TITLE}}", paper_title.strip())
         .replace("{{AUTHORS_BLOCK}}", authors_block)
         .replace("{{KEYWORDS_BLOCK}}", keywords_block)
+        .replace("{{CATEGORIES_BLOCK}}", categories_block)
         .replace("{{ABSTRACT_TEXT}}", abstract_text.strip())
         .replace("{{PUBLICATION_DATE}}", publication_date)
     )
@@ -69,6 +74,7 @@ def main():
     parser.add_argument("--title", help="Paper title")
     parser.add_argument("--authors", help="Comma-separated authors")
     parser.add_argument("--keywords", help="Comma-separated keywords")
+    parser.add_argument("--categories", help="Comma-separated categories from the allowed list")
     parser.add_argument("--abstract", help="Abstract text (multi-line allowed)")
     parser.add_argument(
         "--publication-date",
@@ -84,6 +90,9 @@ def main():
     paper_title = prompt_if_missing(args.title, "Paper title").strip('"')
     authors_input = prompt_if_missing(args.authors or "", "Authors (comma separated)")
     keywords_input = prompt_if_missing(args.keywords or "", "Keywords (comma separated)")
+    categories_input = prompt_if_missing(
+        args.categories or "", "Categories (comma separated, choose from allowed list)"
+    )
     abstract_text = prompt_if_missing(args.abstract or "", "Abstract")
     publication_date = prompt_if_missing(
         args.publication_date or "", "Publication date (YYYY-MM-DD)"
@@ -91,9 +100,21 @@ def main():
 
     authors = [a.strip() for a in authors_input.split(",") if a.strip()]
     keywords = [k.strip() for k in keywords_input.split(",") if k.strip()]
+    categories = [c.strip() for c in categories_input.split(",") if c.strip()]
+
+    invalid = [c for c in categories if c not in ALLOWED_CATEGORIES]
+    if invalid:
+        print("The following categories are not allowed:")
+        for item in invalid:
+            print(f" - {item}")
+        print("Allowed categories:")
+        for item in ALLOWED_CATEGORIES:
+            print(f" - {item}")
+        sys.exit(1)
 
     authors_block = to_yaml_block(authors, "Author Name")
     keywords_block = to_yaml_block(keywords, "keyword")
+    categories_block = to_yaml_block(categories, "Category")
 
     try:
         paper_number_int = int(paper_number)
@@ -109,6 +130,7 @@ def main():
         paper_title=paper_title,
         authors_block=authors_block,
         keywords_block=keywords_block,
+        categories_block=categories_block,
         abstract_text=abstract_text,
         publication_date=publication_date,
     )
