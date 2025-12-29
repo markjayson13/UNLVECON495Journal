@@ -829,8 +829,8 @@ a:hover {
 
   .hero-content {
     position: relative;
-    top: unset;
-    left: unset;
+    top: initial;
+    left: initial;
     padding: 3.5rem 1.75rem;
     max-width: none;
   }
