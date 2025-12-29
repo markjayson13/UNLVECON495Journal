@@ -15,6 +15,8 @@
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   --container: 1400px;
   --container-wide: 1400px;
+  --hero-content-offset: 6.875rem;
+  --founder-image-position: center 20%;
 }
 
 *,
@@ -205,8 +207,8 @@ a:hover {
   max-width: 720px;
   position: absolute;
   z-index: 1;
-  top: 6.875rem;
-  left: 6.875rem;
+  top: var(--hero-content-offset);
+  left: var(--hero-content-offset);
   right: auto;
   text-align: left;
   display: flex;
@@ -765,7 +767,7 @@ a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: var(--founder-image-position);
   display: block;
 }
 
