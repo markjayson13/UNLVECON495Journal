@@ -21,7 +21,7 @@ permalink: /about/
         style="--focus-y: 40%;"
       />
       <div class="founder-body">
-        <h3 class="founder-name">Professor Djeto Assané</h3>
+        <h3 class="founder-name">Djeto Assané, Ph.D</h3>
         <p>
           Dr. Djeto Assané was educated at the Université d'Abidjan (Côte d'Ivoire) and the University of Colorado, Boulder
           (MA, PhD). His teaching areas are Statistics, Econometrics, Mathematical Economics and Microeconomics. Recently, he
@@ -45,7 +45,7 @@ permalink: /about/
         style="--focus-y: 35%;"
       />
       <div class="founder-body">
-        <h3 class="founder-name">Mark Jayson Farol</h3>
+        <h3 class="founder-name">Mark Jayson Farol, M.A.</h3>
         <p>
           Mark Jayson Farol earned both his Master’s in Quantitative Business Economics and his Bachelor of Science in
           Business Administration (Economics) from the University of Nevada, Las Vegas. Originally from a rural community in
