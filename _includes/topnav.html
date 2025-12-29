@@ -4,6 +4,6 @@
     <li><a href="{{ '/issues/' | relative_url }}">Issues</a></li>
     <li><a href="{{ '/about/' | relative_url }}">About</a></li>
     <li><a href="{{ '/policies/' | relative_url }}">Policies</a></li>
-    <li><a href="mailto:econ490journal@unlv.edu">Contact</a></li>
+    <li><a href="mailto:{{ site.contact_email | default: 'econ490journal@unlv.edu' }}">Contact</a></li>
   </ul>
 </nav>

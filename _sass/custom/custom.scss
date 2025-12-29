@@ -71,8 +71,10 @@ body {
   min-height: 420px;
   display: flex;
   align-items: center;
+  background-image: var(--hero-overlay), var(--hero-image);
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   color: #ffffff;
   text-align: center;
   background-color: #0f172a;
