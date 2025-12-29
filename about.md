@@ -14,7 +14,7 @@ permalink: /about/
   <div class="grid-2">
     <article class="founder-card founder-red">
       <div class="founder-media">
-        <img class="founder-img" src="{{ '/assets/images/assane.jpg' | relative_url }}" alt="Professor Djeto Assané" />
+        <img class="founder-img" src="{{ '/assets/images/assane.jpg' | relative_url }}" alt="Professor Djeto Assané" style="--focus-y: 42%;" />
       </div>
       <div class="founder-body">
         <h3>Professor Djeto Assané</h3>
@@ -24,7 +24,7 @@ permalink: /about/
     </article>
     <article class="founder-card founder-red">
       <div class="founder-media">
-        <img class="founder-img" src="{{ '/assets/images/mark-jayson.jpg' | relative_url }}" alt="Mark Jayson Farol" />
+        <img class="founder-img" src="{{ '/assets/images/mark-jayson.jpg' | relative_url }}" alt="Mark Jayson Farol" style="--focus-y: 38%;" />
       </div>
       <div class="founder-body">
         <h3>Mark Jayson Farol</h3>
