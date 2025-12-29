@@ -586,3 +586,25 @@ p {
     grid-template-columns: 1fr;
   }
 }
+
+.site-footer .footer-brand {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+
+@media (max-width: 900px) {
+  .site-footer .footer-brand {
+    font-size: 20px;
+  }
+}
+
+.cat-grid .cat-box .cat-title {
+  color: #000000 !important;
+}
+
+.cat-grid .cat-box:hover .cat-title,
+.cat-grid .cat-box:focus-visible .cat-title {
+  color: #ffffff !important;
+}
