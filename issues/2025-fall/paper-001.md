@@ -1,21 +1,20 @@
----
+<img width="468" height="28" alt="image" src="https://github.com/user-attachments/assets/30b6c518-4459-4b49-ab29-96e21650cce1" />---
 layout: paper
-title: "Paper 001: Housing Market Dynamics in Las Vegas"
-permalink: /issues/2025-fall/paper-001/
+title: "Paper 001: The Race for Increasing College Costs"
+permalink: /issues/2024-spring/paper-001/
 is_paper: true
 paper_id: "001"
-issue_id: "2025-fall"
-issue_slug: "2025-fall"
-issue_title: "Fall 2025"
+issue_id: "2025-spring"
+issue_slug: "2025-spring"
+issue_title: "Spring 2025"
 publication_date: "2025-12-26"
 authors:
-  - Jordan Lee
-  - Samira Patel
+  - Mark Jayson Farol
 keywords:
-  - housing
-  - affordability
-  - regional economics
+  - Bennett’s Hypothesis
+  - Tuition
+  - Financial Aid
 abstract: |
-  This study reviews post-pandemic housing market dynamics in Las Vegas, combining MLS listing trends with Census microdata. We examine price-to-income ratios, rental vacancy changes, and inventory churn to assess affordability pressure on first-time buyers. A difference-in-differences specification compares Las Vegas to peer metros, highlighting how supply constraints and remote-work inflows altered price resilience.
-pdf_path: "/assets/papers/2025-fall/paper-001.pdf"
+  As higher education continues to shift to be more progressive, providing access to more students of different backgrounds, it currently is facing an obstacle. The escalating cost of tuition is growing to be a significant concern for access to higher education. The government has prioritized increasing federal financial aid to improve accessibility. However, this intervention may paradoxically worsen the rise of the cost of college, as suggested by William Bennett's famous hypothesis. As the higher education landscape evolves, a nuanced examination of tuition rise drivers is essential. This study utilizes cross-sectional data from the National Center for Education Statistics to evaluate Bennett's hypothesis, focusing on the impact of government financial aid and institutional aid on costs at public and private nonprofit colleges in the US. The study is structured around an institution’s charging variance and determinants of financial aid. The analysis reveals evidence supporting Bennett’s Hypothesis, indicating a correlation between financial aid and tuition costs across various institutions.
+pdf_path: "/assets/papers/2024-spring/paper-001.pdf"
 ---
